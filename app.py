@@ -31,4 +31,14 @@ class App:
         self.window.attributes("-topmost",True)
         self.window.mainloop()
 
+    def init_gui(self):
+        self.canvas = tk.Canvas(self.window,width=self.camera.width,height=self.camera.height)
+        self.canvas.pack()
+
+        self.btn_toggleauto = tk.Button(self.window, text= "Toggle Counting", command=self.counting_toggle)
+        self.btn_toggleauto.pack(anchor=tk.CENTER , expand=True)
+
+
+    def counting_toggle():
+        pass
 
