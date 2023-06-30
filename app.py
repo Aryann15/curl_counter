@@ -56,7 +56,8 @@ class App:
         self.counter_label.pack(anchor=tk.CENTER, expand=True)
 
     def update(self):
-        pass
+        if self.counting_enabled:
+            self.predict()
 
     def predict(self):
         frame= self.camera.get_frame()
