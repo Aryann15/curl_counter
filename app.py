@@ -56,9 +56,11 @@ class App:
         self.counter_label.config(font=("Arial",24))
         self.counter_label.pack(anchor=tk.CENTER, expand=True)
 
+    def update(self):
+        pass
 
     def counting_toggle(self):
-        pass
+        self.counting_enabled = not self.counting_enabled
 
     def save_for_class(self, class_num):
         pass
