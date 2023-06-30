@@ -28,4 +28,7 @@ class App:
         self.delay=15
         self.update()
 
-        self.window.
+        self.window.attributes("-topmost",True)
+        self.window.mainloop()
+
+
