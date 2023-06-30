@@ -23,4 +23,9 @@ class App:
 
         self.camera = camera.Camera()
 
+        self.init_gui()
 
+        self.delay=15
+        self.update()
+
+        self.window.
