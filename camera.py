@@ -14,7 +14,7 @@ class Camera:
             ret, frame = self.camera.read()
 
             if ret:
-                return ret,
+                return ret, cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
             else:
                 return ret,None
         else:
