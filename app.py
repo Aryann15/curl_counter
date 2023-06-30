@@ -66,4 +66,4 @@ class App:
         pass
 
     def reset(self):
-        pass
+        self.rep_counter= 0
