@@ -59,6 +59,11 @@ class App:
         if self.counting_enabled:
             self.predict()
 
+        if self.extended and self.contracted:
+            self.extended , self.contracted = False, False
+            self.rep_counter +=1
+
+
     def predict(self):
         frame= self.camera.get_frame()
         prediction = self.model.predict(frame)
