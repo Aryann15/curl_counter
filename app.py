@@ -46,10 +46,10 @@ class App:
         self.btn_class_two.pack(anchor=tk.CENTER, expand=True)
 
         self.btn_train = tk.Button(self.window, width=50, text="Start Training!",command=lambda: self.model.train_model(self.counters))
-        self.btn_class_one.pack(anchor=tk.CENTER, expand=True)
+        self.btn_train.pack(anchor=tk.CENTER, expand=True)
 
-        self.btn_class_one = tk.Button(self.window, width=50, text="Reset",command=self.reset)
-        self.btn_class_one.pack(anchor=tk.CENTER, expand=True)
+        self.btn_reset = tk.Button(self.window, width=50, text="Reset",command=self.reset)
+        self.btn_reset.pack(anchor=tk.CENTER, expand=True)
 
         self.counter_label = tk.Label(self.window,  text= f"{self.rep_counter}")
         self.counter_label.config(font=("Arial",24))
@@ -73,16 +73,16 @@ class App:
         self.window.after(self.delay, self.update)
 
     def predict(self):
-        frame= self.camera.get_frame()
-        prediction = self.model.predict(frame)
-
-        if prediction != self.last_prediction:
-            if prediction ==1:
-                self.extended = True
-                self.last_prediction = 1
-            if prediction == 2:
-                self.extended = True
-                self.last_prediction = 2
+        ret, frame= self.camera.get_frame()
+        if ret:
+            prediction = self.model.predict(frame)
+            if prediction != self.last_prediction:
+                if prediction ==1:
+                    self.extended = True
+                    self.last_prediction = 1
+                if prediction == 2:
+                    self.extended = True
+                    self.last_prediction = 2
 
     def counting_toggle(self):
         self.counting_enabled = not self.counting_enabled
