@@ -72,6 +72,12 @@ class App:
         if not os.path.exists("2"):
             os.mkdir("2")
 
+        cv2.imwrite(f'{class_num}/frame{self.counters[class_num-1]}.jpg', cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY))
+        img = PIL.Image.open(f'{class_num}/frame{self.counters[class_num-1]}.jpg')
+        img.thumbnail ((150,150), PIL.Image.ANTIALIAS)
+        img.save(f'{class_num}/frame{self.counters[class_num-1]}.jpg')
+
+        self.counters[class_num-1] +=1
 
     def reset(self):
         self.rep_counter= 0
