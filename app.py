@@ -3,8 +3,7 @@ import os
 import PIL.Image, PIL.ImageTk
 import cv2
 import camera
-
-
+import model
 class App:
 
     def __init__(self):
@@ -17,7 +16,7 @@ class App:
         self.extended = False
         self.contracted = False
 
-        self.model = None
+        self.model = model.Model()
 
         self.last_prediction = 0
 
@@ -60,7 +59,16 @@ class App:
         pass
 
     def predict(self):
-        pass
+        frame= self.camera.get_frame()
+        prediction = self.model.predict(frame)
+
+        if prediction != self.last_prediction:
+            if prediction ==1:
+                self.extended = True
+                self.last_prediction = 1
+            if prediction == 2:
+                self.extended = True
+                self.last_prediction = 2
 
     def counting_toggle(self):
         self.counting_enabled = not self.counting_enabled
