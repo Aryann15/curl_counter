@@ -13,7 +13,6 @@ class Camera:
         if self.camera.isOpened():
             self.camera.release()
 
-
     def get_frame(self):
         if self.camera.isOpened():
             ret, frame = self.camera.read()
