@@ -17,3 +17,11 @@ class Model:
             img = img.reshape(16958)
             img_list = np.append(img_list, [img])
             class_list= np.append(class_list,1)
+
+        for i in range(1,counters[1]):
+            img = cv2.imread(f"1/frame{i}.jpg")[:,:,0]
+            img = img.reshape(16958)
+            img_list = np.append(img_list, [img])
+            class_list= np.append(class_list, 2)
+
+        img_list = img_list.reshape(counters[0] - 1 + counters[1] -1, 16958)
