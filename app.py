@@ -17,6 +17,8 @@ class App:
         self.extended = False
         self.contracted = False
 
+        self.model = None
+
         self.last_prediction = 0
 
         self.counting_enabled = False
@@ -35,10 +37,26 @@ class App:
         self.canvas = tk.Canvas(self.window,width=self.camera.width,height=self.camera.height)
         self.canvas.pack()
 
-        self.btn_toggleauto = tk.Button(self.window, text= "Toggle Counting", command=self.counting_toggle)
+        self.btn_toggleauto = tk.Button(self.window, width=50, text= "Toggle Counting", command=self.counting_toggle)
         self.btn_toggleauto.pack(anchor=tk.CENTER , expand=True)
 
+        self.btn_class_one = tk.Button(self.window, width=50,  text="Extended arms", command=lambda: self.save_for_class(1))
+        self.btn_class_one.pack(anchor=tk.CENTER, expand=True)
 
-    def counting_toggle():
+        self.btn_class_two = tk.Button(self.window, width=50, text="Contracted arms", command=lambda: self.save_for_class(2))
+        self.btn_class_two.pack(anchor=tk.CENTER, expand=True)
+
+        self.btn_train = tk.Button(self.window, width=50, text="Start Training!",command=lambda: self.model.train_model(self.counters))
+        self.btn_class_one.pack(anchor=tk.CENTER, expand=True)
+
+        self.btn_class_one = tk.Button(self.window, width=50, text="Reset",command=self.reset)
+        self.btn_class_one.pack(anchor=tk.CENTER, expand=True)
+
+    def counting_toggle(self):
         pass
 
+    def save_for_class(self, class_num):
+        pass
+
+    def reset(self):
+        pass
