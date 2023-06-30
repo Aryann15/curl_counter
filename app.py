@@ -52,6 +52,11 @@ class App:
         self.btn_class_one = tk.Button(self.window, width=50, text="Reset",command=self.reset)
         self.btn_class_one.pack(anchor=tk.CENTER, expand=True)
 
+        self.counter_label = tk.Label(self.window,  text= f"{self.rep_counter}")
+        self.counter_label.config(font=("Arial",24))
+        self.counter_label.pack(anchor=tk.CENTER, expand=True)
+
+
     def counting_toggle(self):
         pass
 
