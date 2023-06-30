@@ -70,6 +70,8 @@ class App:
             self.photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(frame))
             self.canvas.create_image(0,0, image= self.photo , anchor= tk.NW)
 
+        self.window.after(self.delay, self.update)
+
     def predict(self):
         frame= self.camera.get_frame()
         prediction = self.model.predict(frame)
