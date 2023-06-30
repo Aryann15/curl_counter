@@ -25,3 +25,7 @@ class Model:
             class_list= np.append(class_list, 2)
 
         img_list = img_list.reshape(counters[0] - 1 + counters[1] -1, 16958)
+        self.model.fit(img_list, class_list)
+        print("Model successfully trained!")
+
+
