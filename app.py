@@ -76,7 +76,6 @@ class App:
         img = PIL.Image.open(f'{class_num}/frame{self.counters[class_num-1]}.jpg')
         img.thumbnail ((150,150), PIL.Image.ANTIALIAS)
         img.save(f'{class_num}/frame{self.counters[class_num-1]}.jpg')
-
         self.counters[class_num-1] +=1
 
     def reset(self):
