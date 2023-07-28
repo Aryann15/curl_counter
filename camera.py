@@ -9,24 +9,15 @@ class Camera:
         img_arr = np.array(bytearray(img_resp.content), dtype=np.uint8)
         img = cv.imdecode(img_arr, -1)
         img = imutils.resize(img, width=900, height=900)
-        self.camera  = img
+        self.camera  = cv.cvtColor(img,cv.COLOR_BGR2RGB)
 
 
 
     def __del__(self):
-        if self.camera.isOpened():
-            self.camera.release()
+        pass
 
     def get_frame(self):
-        if self.camera.isOpened():
-            ret, frame = self.camera.read()
-
-            if ret:
-                return ret, cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-            else:
-                return ret,None
-        else:
-            return None
+        return True, self.camera
 
 camera = Camera()
 ret,frame = camera.get_frame()
