@@ -33,7 +33,7 @@ class App:
         self.window.mainloop()
 
     def init_gui(self):
-        self.canvas = tk.Canvas(self.window,width=self.camera.width,height=self.camera.height)
+        self.canvas = tk.Canvas(self.window, width=self.camera.width, height=self.camera.height)
         self.canvas.pack()
 
         self.btn_toggleauto = tk.Button(self.window, width=50, text= "Toggle Counting", command=self.counting_toggle)
@@ -73,16 +73,15 @@ class App:
         self.window.after(self.delay, self.update)
 
     def predict(self):
-        ret, frame= self.camera.get_frame()
-        if ret:
-            prediction = self.model.predict(frame)
-            if prediction != self.last_prediction:
-                if prediction ==1:
-                    self.extended = True
-                    self.last_prediction = 1
-                if prediction == 2:
-                    self.extended = True
-                    self.last_prediction = 2
+        frame= self.camera.get_frame()
+        prediction = self.model.predict(frame)
+        if prediction != self.last_prediction:
+            if prediction == 1:
+                self.extended = True
+                self.last_prediction = 1
+            if prediction == 2:
+                self.extended = True
+                self.last_prediction = 2
 
     def counting_toggle(self):
         self.counting_enabled = not self.counting_enabled
